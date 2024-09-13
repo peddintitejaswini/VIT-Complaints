@@ -23,7 +23,7 @@ app.use(session({
     cookie: { secure: false }
 }))
 
-const url = 'mongodb+srv://yash:yash123@cluster0.7tst6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const url = '';
 const dbName = 'complaintsDB';
 let db;
 
