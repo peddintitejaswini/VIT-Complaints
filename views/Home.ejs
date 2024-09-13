@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIT Complaints</title>
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="navbar-brand">VIT Complaints</div>
+            <div>
+                <% if (loginState) { %>
+                    <a class="submit-btn" href="/logout">Logout</a>
+                    <a class="submit-btn" href="/submit-form">Submit a complaint</a>
+                    <% } else { %>
+                        <a class="submit-btn" href="/login">Login/SignUp</a>
+                        <a class="submit-btn" href="/submit-form">Submit a complaint</a>
+                        <% } %>
+            </div>
+        </div>
+    </nav>
+
+    <form method='POST' action='/filter' class='filter'>
+        <h3 style="color: #444;">Select a Filter</h3>
+        <select name='deptValue' onchange='this.form.submit()'>
+            <option value='' hidden>Department</option>
+            <option value='cse'>
+                CSE
+            </option>
+            <option value='it'>
+                IT
+            </option>
+            <option value='csbs'>
+                CS&BS
+            </option>
+            <option value='aids'>
+                AI&DS
+            </option>
+            <option value='aiml'>
+                AI&ML
+            </option>
+            <option value="ece">
+                ECE
+            </option>
+            <hr />
+            <option value='all'>
+                &#10006; Clear
+            </option>
+        </select>
+    </form>
+
+    <main>
+        <h1>Registered Complaints</h1>
+        <div class="complaints-list">
+            <% complaints.map((complaint)=> { %>
+                <div class="complaint">
+                    <div class="user-info">
+                        <h2>
+                            <%= complaint.name %>
+                        </h2>
+                    </div>
+                    <p>
+                        <%= complaint.typeOfComplaint %>
+                    </p>
+                    <p>
+                        <%= complaint.complaintText %>
+                    </p>
+                    <div class="like-section">
+                        <a class="read-more-btn" href="/post/<%= complaint._id %>">Read More..</a>
+                        <form action="/liked" method="post">
+                            <input type='hidden' value='<%= complaint._id %>' name=like />
+                            <button class="like-btn"><i class="fa fa-thumbs-up" style="font-size:36px"></i></button>
+                        </form>
+                        <span class="like-count">
+                            <%= complaint.likes %>
+                        </span>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+    </main>
+</body>
+
+</html>

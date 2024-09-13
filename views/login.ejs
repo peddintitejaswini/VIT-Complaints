@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <form action="/login" method="post">
+        <h2 style="align-items: center;justify-content: center; margin-left: 40%; margin-bottom: 10px; color: #333;">
+            Login</h2>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="">
+        <label for="password">password</label>
+        <input type="password" name="password" id="">
+        <button type="submit">Submit</button>
+        <p>Don't have Account? <a href="/signup">register</a></p>
+        <p style="color: red;">
+            <%= error %>
+        </p>
+    </form>
+</body>
+
+</html>

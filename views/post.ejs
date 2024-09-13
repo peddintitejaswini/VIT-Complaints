@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/post.css" />
+</head>
+
+<body>
+    <nav>
+        <div class=" navbar">
+            <div class="navbar-brand">VIT Complaints</div>
+            <a class="submit-btn" href="/submit-form">Submit a complaint</a>
+        </div>
+    </nav>
+
+    <div class='post-container'>
+        <div class='post'>
+            <h3>Name: <%= complaint.name %>
+            </h3>
+            <p>Roll Number: <%= complaint.registerNo %>
+            </p>
+            <p>Type: <%= complaint.typeOfComplaint %>
+            </p>
+            <p>Department: <%= complaint.department %>
+            </p>
+            <p>Complaint: <%= complaint.complaintText %>
+            </p>
+            <span class='post-counter'> Likes:
+                <%= complaint.likes %>
+            </span> <br /> <br />
+            <a class='submit-button' href='/'> Back to Home </a>
+        </div>
+</body>
+
+</html>
